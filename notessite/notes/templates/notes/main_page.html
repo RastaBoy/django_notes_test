@@ -1,0 +1,16 @@
+{% extends 'notes/base.html' %}
+
+{% block content %}
+<h1>Тестовый сайт с заметками на Django</h1>
+<h2>В разработке...</h2>
+<div>
+    <h3>Перечисление объектов</h3>
+    <div>
+        <ul>
+            {% for obj in objects %}
+                <li>{{ obj }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

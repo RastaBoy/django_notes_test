@@ -3,8 +3,15 @@ from django.http import HttpRequest, HttpResponse, HttpResponseNotFound
 
 
 # Create your views here.
-def index_notes(request : HttpRequest):
-    return HttpResponse("<h1>Страница приложения Notes.</h1>")
+def index(request : HttpRequest):
+    return render(request, 'notes/main_page.html', context={
+        'title' : 'Заметки на Django',
+        'objects' : [
+            'Vasya',
+            'Petya',
+            'Pupa'
+        ]
+    })
 
 
 def note(request : HttpRequest, note_id : int):
