@@ -1,16 +1,29 @@
 {% extends 'notes/base.html' %}
 
+{% block header_actions %}
+<ul>
+    <li><a href="{% url 'home' %}">Авторизация</a></li>
+    <li>Test2</li>
+    <li>Test3</li>
+</ul>
+{% endblock %}
+
 {% block content %}
-<h1>Тестовый сайт с заметками на Django</h1>
-<h2>В разработке...</h2>
-<div>
-    <h3>Перечисление объектов</h3>
-    <div>
-        <ul>
-            {% for obj in objects %}
-                <li>{{ obj }}</li>
-            {% endfor %}
-        </ul>
+<div style="margin: 5vh 5vw;">
+    <div class="card">
+        <div class="title">
+            <span>Тестовый сайт с заметками на Django</span>
+        </div>
+        <div>
+            <h3>Перечисление объектов</h3>
+            <div>
+                <ul>
+                    {% for obj in objects %}
+                        <li>{{ obj }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

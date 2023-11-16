@@ -7,6 +7,15 @@
     <link type="text/css" rel="stylesheet" href="{% static 'notes/css/main.css' %}">
 </head>
 <body>
+    <div class="header">
+        <div class="title">
+            Заметки на Django
+        </div>
+        <div class="actions">
+            {% block header_actions %}
+            {% endblock header_actions %}
+        </div>
+    </div>
     {% block content %}
     {% endblock content %}
 </body>

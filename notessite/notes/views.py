@@ -4,20 +4,20 @@ from django.http import HttpRequest, HttpResponse, HttpResponseNotFound
 
 # Create your views here.
 def index(request : HttpRequest):
-
-
-    # return render(request, 'notes/main_page.html', context={
-    #     'title' : 'Заметки на Django',
-    #     'objects' : [
-    #         'Vasya',
-    #         'Petya',
-    #         'Pupa'
-    #     ]
-    # })
     return render(request, 'notes/authorization/login.html', context={
         'title' : 'Авторизация',
     })
 
+
+def my_notes(request : HttpRequest):
+    return render(request, 'notes/main_page.html', context={
+            'title' : 'Заметки на Django',
+            'objects' : [
+                'Vasya',
+                'Petya',
+                'Pupa'
+            ]
+        })
 
 def note(request : HttpRequest, note_id : int):
     if note_id >5:
