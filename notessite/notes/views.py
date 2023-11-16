@@ -9,6 +9,11 @@ def index(request : HttpRequest):
     })
 
 
+def register(request : HttpRequest):
+    return render(request, 'notes/authorization/register.html', context={
+        'title' : 'Регистрация'
+    })
+
 def my_notes(request : HttpRequest):
     return render(request, 'notes/main_page.html', context={
             'title' : 'Заметки на Django',
