@@ -5,6 +5,12 @@ class User(models.Model):
     name = models.CharField(max_length=128)
     email = models.EmailField()
     password = models.CharField(max_length=255) # hash из email + password
+    dt_create = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = "Пользователи"
+        verbose_name_plural = "Пользователи"
+        ordering = ['dt_create']
 
 
 class Note(models.Model):
@@ -14,6 +20,11 @@ class Note(models.Model):
     dt_update = models.DateTimeField(auto_now=True)
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = "Заметки"
+        verbose_name_plural = "Заметки"
+        ordering = ['dt_create']
 
 
 
