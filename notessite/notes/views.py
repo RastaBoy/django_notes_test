@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpRequest, HttpResponse, HttpResponseNotFound
 
+from .forms import *
+
 
 # Create your views here.
 def index(request : HttpRequest):
@@ -13,6 +15,7 @@ def register(request : HttpRequest):
     return render(request, 'notes/authorization/register.html', context={
         'title' : 'Регистрация'
     })
+
 
 def my_notes(request : HttpRequest):
     return render(request, 'notes/main_page.html', context={
@@ -36,6 +39,21 @@ def query_test(request : HttpRequest):
         for key, value in request.GET.items():
             response_string += f"<h2>{key} : {value}</h2><br>"
     return HttpResponse(response_string)
+
+
+def test_page(request : HttpRequest):
+    if request.method == 'POST':
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            print(form.cleaned_data)
+    
+    else:
+        form = RegistrationForm()
+
+    return render(request, 'notes/tests.html', context={
+        'title' : 'Страница для тестов',
+        'form' : form
+    })
 
 
 def page_not_found(request : HttpRequest, exception : Exception):
