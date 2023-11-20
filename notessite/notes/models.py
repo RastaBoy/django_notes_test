@@ -1,17 +1,7 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
-class User(models.Model):
-    name = models.CharField(max_length=128)
-    email = models.EmailField()
-    password = models.CharField(max_length=255) # hash sha256 из email + salt + password
-    dt_create = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        verbose_name = "Пользователи"
-        verbose_name_plural = "Пользователи"
-        ordering = ['dt_create']
-
 
 class Note(models.Model):
     title = models.CharField(max_length=255)

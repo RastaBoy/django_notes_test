@@ -7,9 +7,7 @@ def page_not_found(request : HttpRequest, exception : Exception):
 
 
 def index(request : HttpRequest):
-    return render(request, 'notes/authorization/login.html', context={
-        'title' : 'Авторизация',
-    })
+    return redirect('login')
 
 
 def my_notes(request : HttpRequest):
