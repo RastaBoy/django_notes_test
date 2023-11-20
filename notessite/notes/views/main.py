@@ -7,8 +7,10 @@ def page_not_found(request : HttpRequest, exception : Exception):
 
 
 def index(request : HttpRequest):
-    return redirect('login')
+    if not request.user.is_authenticated:
+        return redirect('login')
 
+    return redirect('my_notes')
 
 def my_notes(request : HttpRequest):
     return render(request, 'notes/main_page.html', context={
