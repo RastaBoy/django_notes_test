@@ -3,7 +3,7 @@
 {% block content %}
 <div style="background-color: #fff;">
     <h1>Hello, world! It's a Test page!</h1>
-    <form action="" method="post">
+    <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Зарегистрироваться</button>
