@@ -6,23 +6,29 @@
         <div class="title">
             <span>Регистрация</span>
         </div>
-        <form>
-            <div class="field">
-                <span>Имя пользователя</span>
-                <input type="text" name="username">
+        <form method="post">
+            {% csrf_token %}
+            {% if form.errors %}
+            <div class="errors">
+                {{ form.non_field_errors }}
             </div>
+            {% endif %}
+            {% for elem in form %}
             <div class="field">
-                <span>Email</span>
-                <input type="email" name="email">
+                <span>{{ elem.label }}</span>
+                <div>
+                    {{ elem }}
+                </div>
             </div>
-            <div class="field">
-                <span>Пароль</span>
-                <input type="password" name="password">
+            <div class="errors">
+                {{elem.errors}}
             </div>
+            {% endfor %}
             <div class="actions">
-                <a href="{% url 'home' %}" class="button">
+                <button type="submit" class="button">
                     Зарегистрироваться
-                </a>
+                </button>
+                <a href="{% url 'home' %}" class="button">Авторизация</a> 
             </div>
         </form>
     </div>

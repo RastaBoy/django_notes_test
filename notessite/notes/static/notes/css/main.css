@@ -12,6 +12,9 @@ html, body {
     background-image: url("../img/space_bg2.jpeg");
 }
 
+*, h1, h2, h3, h4, h5 {
+    box-sizing: border-box;
+}
 
 .header {
     min-height: 5%;
@@ -66,7 +69,13 @@ html, body {
     box-shadow: 0 0 15px rgba(0,0,0,0.5);
     padding-right: 30px;
     padding-left: 30px;
+    min-width: 20vw;
 }
+
+.authorization .card {
+    width: 20vw;
+}
+
 
 .card .title {
     font-size: 20px;
@@ -76,8 +85,13 @@ html, body {
 .card .field {
     margin-top: 10px;
     margin-bottom: 10px;
-    
+    width: 100%;
 }
+
+.card .errors {
+    color: red;
+}
+
 
 .field span {
     font-size: 16px;
@@ -90,14 +104,17 @@ html, body {
 .field input {
     border-color: #44444460;
     border-radius: 5px;
-    min-width: 15vw;
+    width: 100%;
+    flex: 1 1;
     min-height: 2vh;
+    font-size: 16px;
     background-color: #dcdcdc;
     box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    box-sizing: border-box;
 }
 
 .actions {
-    margin-top: 20px;
+    padding-top: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;

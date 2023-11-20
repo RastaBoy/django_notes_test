@@ -6,6 +6,9 @@ from ..dto import AuthorizationRequest, RegisterRequest
 from ..exceptions import RegisterException, AuthorizationException
 
 # Контроллер для авторизации/регистрации на сайте
+# Авторизацию можно было организовать через стандартные инструменты Django,
+# Но захотелось вот так :)
+
 class AuthorizationController():
     SALT = '2gd7fjhreec5qelu'    
     
