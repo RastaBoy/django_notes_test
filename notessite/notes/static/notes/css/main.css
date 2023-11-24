@@ -16,6 +16,8 @@ html, body {
     box-sizing: border-box;
 }
 
+
+
 .header {
     min-height: 5%;
     background-color: var(--main-bg-color);
@@ -53,7 +55,7 @@ html, body {
 }
 
 
-.authorization {
+.authentication {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -72,7 +74,13 @@ html, body {
     min-width: 20vw;
 }
 
-.authorization .card {
+.card ul, li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.authentication .card {
     width: 20vw;
 }
 
@@ -113,7 +121,7 @@ html, body {
     box-sizing: border-box;
 }
 
-.actions {
+.card .actions {
     padding-top: 20px;
     display: flex;
     justify-content: space-between;
@@ -132,6 +140,7 @@ html, body {
     padding-right: 10px;
     color: #fff;
     text-decoration: none;
+    cursor: pointer;
 }
 
 

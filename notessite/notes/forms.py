@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import *
 
 
@@ -14,6 +14,11 @@ class RegistrationForm(UserCreationForm):
         fields = ('username', 'email', 'password1', 'password2')
 
 
-class AuthorizationForm(forms.Form):
-    email = forms.EmailField(label='Email')
+
+class LoginUserForm(AuthenticationForm):
+    username = forms.CharField(label='Логин')
     password = forms.CharField(max_length=64, widget=forms.PasswordInput(), label='Пароль')
+
+    class Meta:
+        model = User
+        fields = ('username', 'password')

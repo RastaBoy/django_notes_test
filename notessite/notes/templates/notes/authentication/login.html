@@ -1,0 +1,39 @@
+{% extends 'notes/base.html' %}
+
+{% block content %}
+<div class="authentication">
+    <div class="card">
+        <div class="title">
+            <span>Авторизация</span>
+        </div>
+        <form method="post">
+            {% csrf_token %}
+            {% if form.errors %}
+            <div class="errors">
+                {{ form.non_field_errors }}
+            </div>
+            {% endif %}
+            {% for elem in form %}
+            <div class="field">
+                <span>{{ elem.label }}</span>
+                <div>
+                    {{ elem }}
+                </div>
+            </div>
+            <div class="errors">
+                {{elem.errors}}
+            </div>
+            {% endfor %}
+            <div class="actions">
+                <button type="submit" class="button">
+                    Войти
+                </button>
+                <a href="{% url 'register' %}" class="button">Зарегистрироваться</a> 
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+
+
