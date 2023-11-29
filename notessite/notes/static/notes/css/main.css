@@ -69,11 +69,13 @@ html, body {
     align-items: flex-start;
     height: 95%;
     padding: 10px;
+    flex-wrap: wrap;
 }
 
 
 .note {
-
+    margin-left: 20px;
+    min-width: 300px;
 }
 
 .create_note .card {
@@ -129,6 +131,14 @@ html, body {
     width: 20vw;
 }
 
+
+.note .card {
+    max-width: 20vw;
+}
+
+.card .content {
+
+}
 
 .card .title {
     font-size: 20px;

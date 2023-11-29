@@ -12,11 +12,24 @@
     <div class="note">
         <div class="create_note">
             <div class="card">
-                <a href="#" class="addition">+</a>
+                <a href="{% url 'add_note' %}" class="addition">+</a>
             </div>
         </div>
     </div>
+    {% for note in user_notes %}
+    <div class="note">
+        <div class="card">
+            <div class="title">
+                <span>{{ note.title }}</span>
+            </div>
+            <div class="content">
+                <p>{{ note.content|linebreaks|truncatewords:60 }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
 </div>
+
 
 <!-- <div style="margin: 5vh 5vw;">
     <div class="card">
