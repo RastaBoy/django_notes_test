@@ -8,7 +8,17 @@
 {% endblock %}
 
 {% block content %}
-<div style="margin: 5vh 5vw;">
+<div class="notes">
+    <div class="note">
+        <div class="create_note">
+            <div class="card">
+                <a href="#" class="addition">+</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div style="margin: 5vh 5vw;">
     <div class="card">
         <div class="title">
             <span>Тестовый сайт с заметками на Django</span>
@@ -17,12 +27,12 @@
             <h3>Перечисление объектов</h3>
             <div>
                 <ul>
-                    {% for obj in objects %}
-                        <li>{{ obj }}</li>
+                    {% for note in user_notes %}
+                        <li>{{ note }}</li>
                     {% endfor %}
                 </ul>
             </div>
         </div>
     </div>
-</div>
+</div> -->
 {% endblock %}

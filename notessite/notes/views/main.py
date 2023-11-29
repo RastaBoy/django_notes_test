@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpRequest, HttpResponse, HttpResponseNotFound
 
+from ..models import Note
+
 
 def page_not_found(request : HttpRequest, exception : Exception):
     return HttpResponseNotFound(f"<h1>Oops... Something goes wrong...</h1><br>{exception.__class__.__name__}")
@@ -12,14 +14,13 @@ def index(request : HttpRequest):
 
     return redirect('my_notes')
 
-def my_notes(request : HttpRequest):
-    return render(request, 'notes/main_page.html', context={
+
+def user_notes(request : HttpRequest):
+    user_notes = Note.objects.filter(user=request.user.id)
+    print(user_notes)
+    return render(request, 'notes/main/notes.html', context={
             'title' : 'Заметки на Django',
-            'objects' : [
-                'Vasya',
-                'Petya',
-                'Pupa'
-            ]
+            'user_notes' : user_notes
         })
 
 def note(request : HttpRequest, note_id : int):
