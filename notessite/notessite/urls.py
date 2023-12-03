@@ -15,13 +15,20 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
+import django.views.static
 
 from notes.views import page_not_found
+
+from . import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('notes.urls')),
+]
+
+urlpatterns += [
+   re_path(r'^static/(?P<path>.*)$', django.views.static.serve, {'document_root': settings.STATIC_ROOT, 'show_indexes': settings.DEBUG})
 ]
 
 handler404 = page_not_found
